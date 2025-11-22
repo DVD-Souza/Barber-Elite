@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barber Elite - Agendar Horário</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/style_reserva.css">
+</head>
+<body>
+    
+    <header class="main-header">
+        <div class="container header-content">
+            <a href="index.html" class="logo-area">
+                <div class="logo-circle"></div> 
+                <div class="logo-text">Barber Elite</div>
+            </a>
+            <div class="header-actions">
+                <a href="agendamento.html" class="btn btn-outline small-btn">Cancelar</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        
+        <div class="stepper">
+            <div class="step completed">
+                <div class="step-circle">1</div>
+                <span>Serviço</span>
+            </div>
+            <div class="step-line active"></div>
+            <div class="step active">
+                <div class="step-circle">2</div>
+                <span>Data e Hora</span>
+            </div>
+            <div class="step-line"></div>
+            <div class="step">
+                <div class="step-circle">3</div>
+                <span>Confirmação</span>
+            </div>
+        </div>
+
+        <section class="selected-service-summary">
+            <div class="service-info-box">
+                <div class="image-placeholder icon-box">IMG</div>
+                <div>
+                    <h3 id="summary-service-name">Carregando serviço...</h3>
+                    <p id="summary-service-price">R$ 0,00 • 0 min</p>
+                </div>
+            </div>
+            <button class="btn btn-outline small-btn" onclick="window.location.href='agendamento.html'">Alterar</button>
+        </section>
+
+        <section class="professional-selection">
+            <h3>Escolha o Profissional</h3>
+            <div class="professionals-row">
+                <div class="pro-card selected" onclick="selectProfessional(this, 'Qualquer')">
+                    <div class="pro-avatar any-pro"></div>
+                    <span>Qualquer</span>
+                </div>
+                <div class="pro-card" onclick="selectProfessional(this, 'João')">
+                    <div class="pro-avatar"></div>
+                    <span>João</span>
+                </div>
+                <div class="pro-card" onclick="selectProfessional(this, 'Pedro')">
+                    <div class="pro-avatar"></div>
+                    <span>Pedro</span>
+                </div>
+                <div class="pro-card" onclick="selectProfessional(this, 'Carlos')">
+                    <div class="pro-avatar"></div>
+                    <span>Carlos</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="calendar-section">
+            <div class="calendar-header">
+                <button id="prev-month" class="month-nav">&lt;</button>
+                <h3 id="current-month-display">Novembro 2025</h3>
+                <button id="next-month" class="month-nav">&gt;</button>
+            </div>
+            
+            <div class="weekdays-grid">
+                <div>Dom</div><div>Seg</div><div>Ter</div><div>Qua</div><div>Qui</div><div>Sex</div><div>Sáb</div>
+            </div>
+            
+            <div id="calendar-days" class="days-grid">
+                </div>
+        </section>
+
+        <section class="time-slots-section">
+            <h3 id="slots-title">Horários para <span id="selected-date-text">...</span></h3>
+            
+            <div class="day-periods">
+                <h4>Manhã</h4>
+                <div class="slots-grid" id="slots-morning">
+                    <button class="time-btn disabled">09:00</button>
+                    <button class="time-btn" onclick="selectTime(this)">09:30</button>
+                    <button class="time-btn" onclick="selectTime(this)">10:00</button>
+                    <button class="time-btn" onclick="selectTime(this)">10:30</button>
+                    <button class="time-btn" onclick="selectTime(this)">11:00</button>
+                    <button class="time-btn" onclick="selectTime(this)">11:30</button>
+                </div>
+
+                <h4>Tarde</h4>
+                <div class="slots-grid" id="slots-afternoon">
+                    <button class="time-btn" onclick="selectTime(this)">14:00</button>
+                    <button class="time-btn" onclick="selectTime(this)">14:30</button>
+                    <button class="time-btn" onclick="selectTime(this)">15:00</button>
+                    <button class="time-btn" onclick="selectTime(this)">15:30</button>
+                    <button class="time-btn" onclick="selectTime(this)">16:00</button>
+                    <button class="time-btn" onclick="selectTime(this)">16:30</button>
+                    <button class="time-btn disabled">17:00</button>
+                    <button class="time-btn disabled">17:30</button>
+                </div>
+            </div>
+
+            <div class="legend">
+                <div class="legend-item"><span class="dot available"></span> Disponível</div>
+                <div class="legend-item"><span class="dot selected"></span> Selecionado</div>
+                <div class="legend-item"><span class="dot disabled"></span> Indisponível</div>
+            </div>
+        </section>
+
+        <section class="booking-summary-footer">
+            <div class="summary-details">
+                <p><strong>Serviço:</strong> <span id="final-service">...</span></p>
+                <p><strong>Profissional:</strong> <span id="final-pro">Qualquer</span></p>
+                <p><strong>Data/Hora:</strong> <span id="final-datetime">Selecione um horário</span></p>
+                <p class="total-price">Total: <span id="final-price">R$ 0,00</span></p>
+            </div>
+            
+            <div class="footer-actions">
+                <button class="btn btn-outline full-width" onclick="window.history.back()">Voltar</button>
+                <button id="btn-continue" class="btn btn-dark full-width" disabled onclick="goToConfirmation()">Continuar</button>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="./assets/js/reserva.js"></script>
+</body>
+</html>

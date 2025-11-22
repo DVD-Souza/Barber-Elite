@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barber Elite - Confirmar Agendamento</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/style_confirmacao.css">
+</head>
+<body>
+    
+    <header class="main-header">
+        <div class="container header-content">
+            <a href="index.html" class="logo-area">
+                <div class="logo-circle"></div> 
+                <div class="logo-text">Barber Elite</div>
+            </a>
+        </div>
+    </header>
+
+    <main class="container">
+        
+        <div class="stepper">
+            <div class="step completed">
+                <div class="step-circle">1</div>
+                <span>Serviço</span>
+            </div>
+            <div class="step-line active"></div>
+            <div class="step completed">
+                <div class="step-circle">2</div>
+                <span>Data</span>
+            </div>
+            <div class="step-line active"></div>
+            <div class="step active">
+                <div class="step-circle">3</div>
+                <span>Confirmação</span>
+            </div>
+        </div>
+
+        <h2 class="page-title">Revisar e Confirmar</h2>
+
+        <div class="confirmation-grid">
+            
+            <div class="left-col">
+                
+                <section class="review-card">
+                    <div class="service-header">
+                        <h3>Resumo do Serviço</h3>
+                    </div>
+                    <div class="service-body">
+                        <div class="service-img-placeholder">IMG</div>
+                        <div class="service-data">
+                            <h4 id="conf-service-name">Carregando...</h4>
+                            <div class="meta-row">
+                                <span><strong id="conf-duration">0 min</strong></span>
+                                <span><strong id="conf-price">R$ 0,00</strong></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="service-footer">
+                        <div class="footer-item">
+                            <span class="label">Profissional</span>
+                            <div class="pro-info">
+                                <div class="pro-avatar-small"></div>
+                                <span id="conf-pro-name">Qualquer</span>
+                            </div>
+                        </div>
+                        <div class="footer-item">
+                            <span class="label">Data e Horário</span>
+                            <span id="conf-date-time" class="highlight-text">...</span>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="review-card">
+                    <div class="card-header-row">
+                        <h3>Seus Dados</h3>
+                        <button class="btn btn-outline small-btn">Editar</button>
+                    </div>
+                    <div class="user-data-list">
+                        <div class="data-line">
+                            <span class="label">Nome:</span>
+                            <span>André Almeida</span> </div>
+                        <div class="data-line">
+                            <span class="label">Telefone:</span>
+                            <span>(75) 99999-9999</span>
+                        </div>
+                        <div class="data-line">
+                            <span class="label">Email:</span>
+                            <span>andre@exemplo.com</span>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="review-card">
+                    <h3>Observações</h3>
+                    <textarea class="notes-input" placeholder="Ex: preferência de estilo, alergias, etc."></textarea>
+                    <p class="helper-text">Opcional. Adicione detalhes para o barbeiro.</p>
+                </section>
+
+                <div class="warning-box">
+                    <div class="warning-icon">!</div>
+                    <div class="warning-content">
+                        <h4>Política de Cancelamento</h4>
+                        <p>Cancelamentos devem ser feitos com no mínimo <strong>2 horas de antecedência</strong>. O não comparecimento pode gerar taxas futuras.</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="right-col">
+                
+                <section class="review-card summary-card">
+                    <h3>Resumo Financeiro</h3>
+                    <div class="price-row">
+                        <span>Subtotal</span>
+                        <span id="conf-subtotal">R$ 0,00</span>
+                    </div>
+                    <div class="price-row">
+                        <span>Taxa de serviço</span>
+                        <span>R$ 0,00</span>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="price-row total">
+                        <span>Total</span>
+                        <span id="conf-total">R$ 0,00</span>
+                    </div>
+                </section>
+
+                <section class="review-card payment-card">
+                    <h3>Pagamento</h3>
+                    
+                    <label class="payment-option selected">
+                        <input type="radio" name="payment" value="local" checked>
+                        <span class="radio-custom"></span>
+                        <span class="pay-text">Pagar no local</span>
+                    </label>
+
+                    <label class="payment-option">
+                        <input type="radio" name="payment" value="card">
+                        <span class="radio-custom"></span>
+                        <span class="pay-text">Cartão de Crédito</span>
+                    </label>
+
+                    <label class="payment-option">
+                        <input type="radio" name="payment" value="pix">
+                        <span class="radio-custom"></span>
+                        <span class="pay-text">PIX</span>
+                    </label>
+                </section>
+
+                <div class="terms-check">
+                    <input type="checkbox" id="terms" checked>
+                    <label for="terms">Concordo com os detalhes da reserva.</label>
+                </div>
+
+                <button class="btn btn-dark full-width btn-large" id="btn-confirm-reservation">CONFIRMAR RESERVA</button>
+                <button class="btn btn-outline full-width mt-2" onclick="window.history.back()">Voltar</button>
+                
+                <div class="secure-transaction">
+                    <span class="lock-icon">🔒</span> Transação segura
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <script src="./assets/js/confirmacao.js"></script>
+</body>
+</html>
