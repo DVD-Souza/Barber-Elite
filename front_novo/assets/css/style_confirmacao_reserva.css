@@ -1,0 +1,452 @@
+/* --- Variáveis (Reaproveitamento do CSS da página de Reserva) --- */
+:root {
+    --primary-bg: #1a1a2e;
+    /* Navy Dark - Sofisticado */
+    --accent-color: #e94560;
+    /* Vermelho/Rosa - Ação */
+    --text-main: #333;
+    --text-light: #777;
+    --white: #ffffff;
+    --off-white: #f4f6f8;
+    --border-color: #e0e0e0;
+    --alert-color: #ffc107;
+    /* Amarelo para Alertas */
+    --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.05);
+    --font-main: 'Poppins', sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-main);
+    background-color: var(--off-white);
+    color: var(--text-main);
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.container {
+    max-width: 700px;
+    /* Container mais estreito para foco na confirmação */
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.card {
+    background: var(--white);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: var(--shadow-soft);
+    margin-bottom: 25px;
+}
+
+.page-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-bg);
+    margin-bottom: 20px;
+}
+
+.card-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--primary-bg);
+    margin-bottom: 15px;
+}
+
+
+/* --- Stepper de Navegação (Repetido do CSS anterior) --- */
+.stepper-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 25px 0 35px 0;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.stepper-nav::before {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--border-color);
+}
+
+.step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    flex: 1;
+    position: relative;
+    font-size: 0.8rem;
+    color: var(--text-light);
+    font-weight: 500;
+    z-index: 1;
+}
+
+.step-circle {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: var(--border-color);
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 5px;
+    transition: all 0.3s;
+}
+
+.step.active .step-circle {
+    background: var(--primary-bg);
+}
+
+.step.done::after {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: -50%;
+    right: 50%;
+    height: 3px;
+    background: var(--primary-bg);
+}
+
+.step:first-child.done::after {
+    content: none;
+}
+
+.step.current .step-circle {
+    background: var(--accent-color);
+    transform: scale(1.1);
+}
+
+.step.current .step-label {
+    color: var(--primary-bg);
+    font-weight: 600;
+}
+
+/* --- Seção de Detalhes do Serviço --- */
+.service-summary {
+    border-left: 5px solid var(--accent-color);
+}
+
+.service-details-group {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px dashed var(--border-color);
+    margin-bottom: 15px;
+}
+
+.service-details-box {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.service-thumb {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.service-info {
+    flex-grow: 1;
+}
+
+.service-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--primary-bg);
+    margin-bottom: 5px;
+}
+
+.service-meta {
+    font-size: 0.85rem;
+    color: var(--text-light);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-bottom: 3px;
+}
+
+.pro-date-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.detail-block {
+    border-left: 2px solid var(--border-color);
+    padding-left: 10px;
+}
+
+.detail-label {
+    font-size: 0.8rem;
+    color: var(--text-light);
+    margin-bottom: 5px;
+}
+
+.detail-value {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--primary-bg);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.pro-avatar {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+
+/* --- Informações do Cliente --- */
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.client-details p {
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+/* --- Botões Comuns --- */
+.btn-outline-sm {
+    background: none;
+    border: 1px solid var(--border-color);
+    padding: 8px 15px;
+    border-radius: 6px;
+    font-weight: 500;
+    color: var(--text-main);
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-outline-sm:hover {
+    border-color: var(--primary-bg);
+    color: var(--primary-bg);
+}
+
+/* --- Notas/Preferências --- */
+.form-textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    font-family: var(--font-main);
+    font-size: 0.95rem;
+    resize: vertical;
+}
+
+/* --- Alerta de Política --- */
+.policy-alert {
+    background: #fff8e1;
+    /* Light Yellow */
+    border-left: 5px solid var(--alert-color);
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 25px;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.policy-alert i {
+    color: var(--alert-color);
+    font-size: 1.2rem;
+    margin-top: 2px;
+}
+
+.policy-alert p {
+    font-size: 0.9rem;
+    color: var(--text-main);
+}
+
+.policy-alert a {
+    color: var(--accent-color);
+    font-weight: 600;
+}
+
+/* --- Seção de Pagamento --- */
+.price-breakdown {
+    padding: 10px 0 20px 0;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 20px;
+}
+
+.breakdown-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+}
+
+.total-row {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--primary-bg);
+}
+
+/* Opções de Pagamento (Estilização de Radio Buttons Customizada) */
+.payment-options {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.payment-option {
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--border-color);
+    padding: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: border-color 0.2s;
+}
+
+.payment-option:hover {
+    border-color: var(--selection-border);
+}
+
+.payment-option input[type="radio"] {
+    display: none;
+}
+
+.payment-option input[type="radio"]:checked+.custom-radio {
+    border-color: var(--primary-bg);
+}
+
+.payment-option input[type="radio"]:checked+.custom-radio::after {
+    transform: translate(-50%, -50%) scale(1);
+    background: var(--primary-bg);
+}
+
+.payment-option input[type="radio"]:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.payment-option input[type="radio"]:disabled~.option-label small {
+    color: var(--accent-color);
+}
+
+.custom-radio {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid var(--border-color);
+    margin-right: 10px;
+    position: relative;
+    flex-shrink: 0;
+}
+
+.custom-radio::after {
+    content: '';
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--white);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: transform 0.2s;
+}
+
+.option-label {
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+.option-label small {
+    font-weight: 400;
+    color: var(--text-light);
+}
+
+
+/* --- Ações Finais (CTA) --- */
+.final-actions {
+    padding: 10px 0 30px 0;
+    text-align: center;
+}
+
+.btn-primary {
+    background-color: var(--primary-bg);
+    color: var(--white);
+    border: none;
+    padding: 15px;
+    border-radius: 8px;
+    font-weight: 600;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.3s;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.btn-primary:hover {
+    background-color: #2c2c4d;
+}
+
+.btn-primary:disabled {
+    background-color: #999;
+    cursor: not-allowed;
+}
+
+.btn-secondary {
+    background-color: var(--white);
+    color: var(--primary-bg);
+    border: 1px solid var(--primary-bg);
+    padding: 12px;
+    border-radius: 8px;
+    font-weight: 600;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-size: 1rem;
+}
+
+.btn-secondary:hover {
+    background-color: var(--primary-bg);
+    color: var(--white);
+}
+
+.full-width {
+    width: 100%;
+}
+
+.secure-text {
+    font-size: 0.8rem;
+    color: var(--text-light);
+    margin-top: 15px;
+}
+
+.secure-text i {
+    color: var(--success);
+    margin-right: 5px;
+}

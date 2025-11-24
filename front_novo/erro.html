@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barber Elite | Erro de Acesso</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    
+    <link rel="stylesheet" href="./assets/css/style_erro.css">
+</head>
+<body>
+    <div class="error-container">
+        <header class="error-header">
+            <div class="logo-placeholder">
+                <i class="fas fa-cut"></i>
+                <span>Barber Elite</span>
+            </div>
+        </header>
+
+        <main class="error-content" role="main">
+            <p class="error-code" id="error-code">404</p> 
+            <h1 class="error-title" id="error-title">Página Não Encontrada</h1>
+            
+            <p class="error-message" id="error-message">
+                Ops! Parece que o corte que você procurava não está no nosso menu, ou você não tem permissão para acessar esta seção. 
+            </p>
+
+            <div class="error-actions">
+                <a href="/" class="btn btn-primary" aria-label="Voltar para a página inicial">
+                    <i class="fas fa-home"></i> Início
+                </a>
+                <button id="back-button" class="btn btn-secondary" aria-label="Voltar à página anterior">
+                    <i class="fas fa-arrow-left"></i> Voltar
+                </button>
+            </div>
+        </main>
+
+        <section class="help-section" aria-labelledby="help-title">
+            <h2 id="help-title" class="help-title">Precisa de Ajuda Imediata?</h2>
+            
+            <div class="contact-cards">
+                <article class="contact-card">
+                    <i class="fas fa-user-shield"></i>
+                    <h3>Suporte</h3>
+                    <p>Fale com nossa equipe técnica para resolver o problema.</p>
+                    <a href="mailto:suporte@barberelite.com.br" class="contact-link">
+                        Enviar Email <i class="fas fa-chevron-right"></i>
+                    </a>
+                </article>
+                
+                <article class="contact-card">
+                    <i class="fas fa-redo-alt"></i>
+                    <h3>Tentar Novamente</h3>
+                    <p>Limpe o cache ou tente recarregar a página.</p>
+                    <button id="reload-button" class="contact-link contact-link-button">
+                        Recarregar <i class="fas fa-chevron-right"></i>
+                    </button>
+                </article>
+            </div>
+        </section>
+        
+        <footer class="error-footer">
+            <p>&copy; <span id="current-year">2025</span> Barber Elite. Todos os direitos reservados.</p>
+        </footer>
+    </div>
+    <script src="./assets/js/erro.js"></script>
+</body>
+</html>

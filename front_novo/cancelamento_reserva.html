@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cancelar Reserva | Barber Elite</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="assets/css/style_cancelamento.css">
+</head>
+<body>
+
+    <header class="header">
+        <div class="container">
+            <h1 class="page-title"><i class="fas fa-calendar-times"></i> Cancelar Reserva</h1>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="container">
+            
+            <section class="reservation-summary card">
+                <h2 class="section-title-sub">Detalhes da Reserva</h2>
+                
+                <div class="reservation-details-card">
+                    <div class="service-info">
+                        <div class="service-thumb-placeholder"></div>
+                        <div class="details-text">
+                            <p class="reservation-id-text">ID: <span id="reserva-id">#BR2024-0156</span></p>
+                            <h3 class="service-name-text">Corte Clássico Elite</h3>
+                            <span class="status-badge status-confirmado" id="reserva-status">Confirmado</span>
+                        </div>
+                    </div>
+                    
+                    <div class="meta-data-group">
+                        <div class="meta-item">
+                            <p class="meta-label">Profissional</p>
+                            <p class="meta-value" id="reserva-profissional">João</p>
+                        </div>
+                        <div class="meta-item">
+                            <p class="meta-label">Data e Horário</p>
+                            <p class="meta-value" id="reserva-data-hora">25/Nov, 10:00</p>
+                        </div>
+                        <div class="meta-item">
+                            <p class="meta-label">Valor</p>
+                            <p class="meta-value" id="reserva-valor">R$ 45,00</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="cancellation-alert card alert-warning-block">
+                <h2 class="section-title-sub"><i class="fas fa-exclamation-triangle"></i> Atenção à Política</h2>
+                <p>
+                    O cancelamento deve ser feito com **no mínimo 2 horas de antecedência** para evitar multas. 
+                    Sua reserva está agendada para <strong id="alert-time">25/Nov às 10:00</strong>.
+                </p>
+                <p class="fine-warning" style="display: none;">
+                    <i class="fas fa-clock"></i> Você está cancelando com menos de 2h. Uma taxa de R$ 15,00 pode ser aplicada.
+                </p>
+            </section>
+
+            <section class="cancellation-form card">
+                <h2 class="section-title-sub required">Qual o motivo do cancelamento?</h2>
+                
+                <form id="cancel-form">
+                    <div class="radio-group">
+                        <label class="radio-option">
+                            <input type="radio" name="cancel_reason" value="nao_posso_comparecer" required>
+                            <span class="radio-custom"></span> Não posso comparecer no horário
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="cancel_reason" value="mudanca_planos">
+                            <span class="radio-custom"></span> Mudança de planos
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="cancel_reason" value="emergencia_pessoal">
+                            <span class="radio-custom"></span> Emergência pessoal
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="cancel_reason" value="insatisfacao_servico">
+                            <span class="radio-custom"></span> Insatisfação com serviço anterior
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="cancel_reason" value="outro_motivo" id="other-reason-radio">
+                            <span class="radio-custom"></span> Outro motivo
+                        </label>
+                        
+                        <div id="other-reason-input" class="text-input-container" style="display: none;">
+                            <label for="other_reason_text" class="sr-only">Especifique o motivo</label>
+                            <input type="text" id="other_reason_text" placeholder="Especifique o motivo (obrigatório)">
+                        </div>
+                    </div>
+
+                    <div class="text-input-container comments-block">
+                        <label for="comments" class="input-label">Comentários adicionais (opcional)</label>
+                        <textarea id="comments" rows="3" placeholder="Ex: Preferi reagendar para outro dia, etc."></textarea>
+                    </div>
+
+                    <div class="action-alternatives">
+                        <button type="button" class="btn-outline" onclick="reagendar()">
+                            <i class="fas fa-redo-alt"></i> Reagendar Reserva
+                        </button>
+                        <button type="button" class="btn-outline" onclick="falarComSuporte()">
+                            <i class="fas fa-headset"></i> Falar com Suporte
+                        </button>
+                    </div>
+
+                    <div class="terms-acceptance">
+                        <label class="checkbox-option">
+                            <input type="checkbox" id="accept-terms" required>
+                            <span class="checkbox-custom"></span> Declaro que li e entendi a política de cancelamento acima.
+                        </label>
+                    </div>
+
+                    <div class="action-buttons-final">
+                        <button type="button" class="btn-light" onclick="history.back()">
+                            Voltar
+                        </button>
+                        <button type="submit" class="btn-danger-confirm" id="confirm-cancel-btn">
+                            CONFIRMAR CANCELAMENTO
+                        </button>
+                    </div>
+                </form>
+            </section>
+        </div>
+    </main>
+
+    <script src="assets/js/cancelamento.js"></script>
+</body>
+</html>

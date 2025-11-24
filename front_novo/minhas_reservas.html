@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minhas Reservas | Barber Elite</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="assets/css/style_minhas_reservas.css">
+</head>
+<body>
+
+    <header class="header">
+        <div class="container header-content">
+            <h1 class="page-title">Minhas Reservas</h1>
+            <button class="btn-primary-sm" onclick="location.href='catalogo.html'">
+                <i class="fas fa-plus"></i> Nova Reserva
+            </button>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="container">
+            
+            <nav class="reservation-tabs" aria-label="Filtro de Reservas">
+                <button class="tab-button active" data-tab="futuras">Futuras (<span id="count-futuras">3</span>)</button>
+                <button class="tab-button" data-tab="passadas">Passadas (<span id="count-passadas">12</span>)</button>
+                <button class="tab-button" data-tab="canceladas">Canceladas (<span id="count-canceladas">2</span>)</button>
+            </nav>
+
+            <div id="reservation-list" class="reservation-list">
+                
+                <article class="reservation-card card status-confirmado" data-status="futuras">
+                    <div class="status-indicator">Confirmado</div>
+                    <div class="card-header-status">
+                        <span class="reservation-id">ID: #BR2024-0156</span>
+                        <input type="checkbox" class="card-select-checkbox" aria-label="Selecionar reserva 0156">
+                    </div>
+                    
+                    <div class="card-body-details">
+                        <img src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?q=80&w=60" alt="Corte Clássico" class="service-thumb">
+                        <div class="details-info">
+                            <h2 class="service-name">Corte Clássico Elite</h2>
+                            <p class="professional-name"><i class="fas fa-user-circle"></i> Profissional: João</p>
+                        </div>
+                        <div class="details-meta">
+                            <p class="meta-label">Data e Horário</p>
+                            <p class="meta-value">25/Nov, 10:00</p>
+                            <p class="meta-label">Valor</p>
+                            <p class="meta-value">R$ 45,00</p>
+                        </div>
+                    </div>
+                    
+                    <div class="card-actions">
+                        <button class="btn-outline" onclick="viewDetails('0156')">Ver Detalhes</button>
+                        <button class="btn-secondary-action" onclick="reschedule('0156')">Reagendar</button>
+                        <button class="btn-danger" onclick="cancelReservation('0156')">Cancelar</button>
+                    </div>
+                </article>
+
+                <article class="reservation-card card status-pendente" data-status="futuras">
+                    <div class="status-indicator">Pendente</div>
+                    <div class="card-header-status">
+                        <span class="reservation-id">ID: #BR2024-0157</span>
+                        <input type="checkbox" class="card-select-checkbox" aria-label="Selecionar reserva 0157">
+                    </div>
+                    
+                    <div class="card-body-details">
+                        <img src="https://images.unsplash.com/photo-1620907106757-b12e12e2e71f?q=80&w=60" alt="Barba Terapêutica" class="service-thumb">
+                        <div class="details-info">
+                            <h2 class="service-name">Barba Terapêutica</h2>
+                            <p class="professional-name"><i class="fas fa-user-circle"></i> Profissional: Pedro</p>
+                        </div>
+                        <div class="details-meta">
+                            <p class="meta-label">Data e Horário</p>
+                            <p class="meta-value">24/Nov, 16:30</p>
+                            <p class="meta-label">Valor</p>
+                            <p class="meta-value">R$ 60,00</p>
+                        </div>
+                    </div>
+                    
+                    <div class="alert-block alert-warning">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <p>Pagamento Pendente. Por favor, confirme o pagamento ou pague no local.</p>
+                    </div>
+                    
+                    <div class="card-actions">
+                        <button class="btn-outline" onclick="viewDetails('0157')">Ver Detalhes</button>
+                        <button class="btn-primary-action" onclick="confirmPayment('0157')">Confirmar Pagamento</button>
+                        <button class="btn-danger" onclick="cancelReservation('0157')">Cancelar</button>
+                    </div>
+                </article>
+                
+                <article class="reservation-card card status-passada" data-status="passadas">
+                    <div class="status-indicator">Concluída</div>
+                    <div class="card-header-status">
+                        <span class="reservation-id">ID: #BR2024-0158</span>
+                        <input type="checkbox" class="card-select-checkbox" aria-label="Selecionar reserva 0158">
+                    </div>
+                    
+                    <div class="card-body-details">
+                        <img src="https://images.unsplash.com/photo-1606787968512-2c6c039c381c?q=80&w=60" alt="Progressiva Masculina" class="service-thumb">
+                        <div class="details-info">
+                            <h2 class="service-name">Progressiva Masculina</h2>
+                            <p class="professional-name"><i class="fas fa-user-circle"></i> Profissional: Carlos</p>
+                        </div>
+                        <div class="details-meta">
+                            <p class="meta-label">Data e Horário</p>
+                            <p class="meta-value">10/Nov, 15:00</p>
+                            <p class="meta-label">Valor</p>
+                            <p class="meta-value">R$ 120,00</p>
+                        </div>
+                    </div>
+                    
+                    <div class="card-actions">
+                        <button class="btn-outline" onclick="viewDetails('0158')">Ver Detalhes</button>
+                        <button class="btn-secondary-action" onclick="rebook('0158')">Agendar Novamente</button>
+                        <button class="btn-light" disabled>Avaliar</button>
+                    </div>
+                </article>
+
+                <article class="reservation-card card status-cancelada" data-status="canceladas">
+                    <div class="status-indicator">Cancelada</div>
+                    <div class="card-header-status">
+                        <span class="reservation-id">ID: #BR2024-0159</span>
+                        <input type="checkbox" class="card-select-checkbox" aria-label="Selecionar reserva 0159">
+                    </div>
+                    
+                    <div class="card-body-details">
+                        <img src="https://images.unsplash.com/photo-1582967657960-e4b9f3f982d6?q=80&w=60" alt="Design de Sobrancelha" class="service-thumb">
+                        <div class="details-info">
+                            <h2 class="service-name">Design de Sobrancelha</h2>
+                            <p class="professional-name"><i class="fas fa-user-circle"></i> Profissional: João</p>
+                        </div>
+                        <div class="details-meta">
+                            <p class="meta-label">Data e Horário</p>
+                            <p class="meta-value">01/Nov, 09:00</p>
+                            <p class="meta-label">Valor</p>
+                            <p class="meta-value">R$ 30,00</p>
+                        </div>
+                    </div>
+                    
+                    <div class="alert-block alert-danger">
+                        <i class="fas fa-info-circle"></i>
+                        <p>Cancelada pelo cliente em 30/Out. Motivo: Conflito de agenda.</p>
+                    </div>
+                    
+                    <div class="card-actions">
+                        <button class="btn-outline" onclick="viewDetails('0159')">Ver Detalhes</button>
+                        <button class="btn-secondary-action" onclick="rebook('0159')">Agendar Novamente</button>
+                        <button class="btn-light" disabled>Remover</button>
+                    </div>
+                </article>
+                
+                <div id="empty-state" class="empty-state" style="display: none;">
+                    <i class="far fa-calendar-times"></i>
+                    <p class="empty-message">Você não tem reservas ativas no momento.</p>
+                    <button class="btn-primary" onclick="location.href='catalogo.html'">
+                        Fazer primeira reserva
+                    </button>
+                </div>
+
+            </div>
+            
+        </div>
+    </main>
+
+    <script src="assets/js/minhas_reservas.js"></script>
+</body>
+</html>

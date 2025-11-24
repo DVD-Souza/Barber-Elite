@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barber Elite | Catálogo de Serviços</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="assets/css/style_catalogo.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="container header-content">
+            <a href="index.html" class="logo-area">
+                <div class="logo-symbol"><i class="fas fa-cut"></i></div>
+                <span class="logo-text">Barber Elite</span>
+            </a>
+            <nav class="desktop-nav">
+                <a href="index.html">Início</a>
+                <a href="#" class="active">Serviços</a>
+                <a href="#">Agendamentos</a>
+            </nav>
+            <div class="user-actions">
+                <a href="#" class="btn-icon" aria-label="Carrinho"><i class="fas fa-shopping-bag"></i></a>
+                <a href="#" class="user-profile"><img src="https://ui-avatars.com/api/?name=User+Name&background=e94560&color=fff" alt="Perfil"></a>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-container">
+        
+        <section class="page-header">
+            <div class="container">
+                <h1>Escolha seu Estilo</h1>
+                <p>Serviços premium executados pelos melhores profissionais.</p>
+            </div>
+        </section>
+
+        <section class="toolbar-section">
+            <div class="container">
+                <div class="toolbar-wrapper">
+                    
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="searchInput" placeholder="O que você procura hoje?">
+                    </div>
+
+                    <div class="filters-group">
+                        <div class="select-wrapper">
+                            <select id="categoryFilter">
+                                <option value="all">Todas as Categorias</option>
+                                <option value="cabelo">Cabelo</option>
+                                <option value="barba">Barba</option>
+                                <option value="combo">Combos</option>
+                                <option value="tratamento">Tratamentos</option>
+                            </select>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        
+                        <div class="select-wrapper">
+                            <select id="sortFilter">
+                                <option value="relevance">Ordenar por: Relevância</option>
+                                <option value="price-asc">Menor Preço</option>
+                                <option value="price-desc">Maior Preço</option>
+                                <option value="time">Menor Duração</option>
+                            </select>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="quick-tags">
+                    <button class="tag active" data-tag="all">Todos</button>
+                    <button class="tag" data-tag="popular">🔥 Mais Populares</button>
+                    <button class="tag" data-tag="fast">⚡ Até 30 min</button>
+                    <button class="tag" data-tag="cabelo">Cabelo</button>
+                    <button class="tag" data-tag="barba">Barba</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="catalog-section">
+            <div class="container">
+                <div id="servicesGrid" class="services-grid">
+                    <div class="loading-skeleton">Carregando serviços...</div>
+                </div>
+            </div>
+        </section>
+
+        <div class="pagination-container">
+            <button class="page-btn disabled"><i class="fas fa-chevron-left"></i></button>
+            <button class="page-btn active">1</button>
+            <button class="page-btn">2</button>
+            <button class="page-btn">3</button>
+            <button class="page-btn"><i class="fas fa-chevron-right"></i></button>
+        </div>
+
+    </main>
+
+    <script src="assets/js/catalogo.js"></script>
+</body>
+</html>

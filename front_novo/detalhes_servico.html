@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Corte Clássico Elite | Detalhes do Serviço</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="assets/css/style_detalhe.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="container">
+            <a href="catalogo.html" class="back-link"><i class="fas fa-arrow-left"></i> Voltar</a>
+            <div class="logo-text">Barber Elite</div>
+            <a href="#" class="cart-icon"><i class="fas fa-shopping-bag"></i></a>
+        </div>
+    </header>
+
+    <main class="main-content">
+        
+        <div class="container">
+            <nav aria-label="breadcrumb" class="breadcrumbs">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="catalogo.html">Serviços</a></li>
+                    <li><a href="#">Cortes</a></li>
+                    <li class="active" aria-current="page">Corte Clássico</li>
+                </ul>
+            </nav>
+
+            <div class="service-layout">
+                
+                <section class="gallery-section">
+                    <div class="main-image-container">
+                        <img id="mainImage" src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?q=80&w=800&auto=format&fit=crop" alt="Corte Clássico">
+                        <div class="floating-badge"><i class="fas fa-star"></i> 4.9 (120+)</div>
+                    </div>
+                    
+                    <div class="thumbnails-grid">
+                        <button class="thumb-btn active" onclick="changeImage(this, 'https://images.unsplash.com/photo-1585747860715-2ba37e788b70?q=80&w=800&auto=format&fit=crop')">
+                            <img src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?q=80&w=150&auto=format&fit=crop" alt="Vista Frontal">
+                        </button>
+                        <button class="thumb-btn" onclick="changeImage(this, 'https://images.unsplash.com/photo-1621605815971-fbc98d6d4e85?q=80&w=800&auto=format&fit=crop')">
+                            <img src="https://images.unsplash.com/photo-1621605815971-fbc98d6d4e85?q=80&w=150&auto=format&fit=crop" alt="Detalhe Tesoura">
+                        </button>
+                        <button class="thumb-btn" onclick="changeImage(this, 'https://images.unsplash.com/photo-1503951914875-452162b0f3f1?q=80&w=800&auto=format&fit=crop')">
+                            <img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?q=80&w=150&auto=format&fit=crop" alt="Ambiente">
+                        </button>
+                        <button class="thumb-btn" onclick="changeImage(this, 'https://images.unsplash.com/photo-1599351431202-1e0f0137899a?q=80&w=800&auto=format&fit=crop')">
+                            <img src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?q=80&w=150&auto=format&fit=crop" alt="Resultado Final">
+                        </button>
+                    </div>
+                </section>
+
+                <section class="details-section">
+                    
+                    <div class="header-info">
+                        <h1 class="service-title">Corte Clássico Elite</h1>
+                        <button class="btn-favorite" aria-label="Adicionar aos favoritos" onclick="toggleFavorite(this)">
+                            <i class="far fa-heart"></i>
+                        </button>
+                    </div>
+
+                    <div class="price-duration-row">
+                        <div class="price">R$ 45,00</div>
+                        <div class="duration"><i class="far fa-clock"></i> 45 min</div>
+                    </div>
+
+                    <div class="cta-container-mobile">
+                        <button class="btn-primary full-width" onclick="startBooking()">AGENDAR AGORA</button>
+                    </div>
+
+                    <div class="divider"></div>
+
+                    <div class="description-block">
+                        <h3>Sobre o Serviço</h3>
+                        <p>O corte tradicional refinado para o homem moderno. Inclui consultoria de visagismo, lavagem com shampoo especial, corte na tesoura ou máquina e finalização com pomada premium.</p>
+                        
+                        <ul class="benefits-list">
+                            <li><i class="fas fa-check-circle"></i> Toalha quente inclusa</li>
+                            <li><i class="fas fa-check-circle"></i> Acabamento na navalha</li>
+                            <li><i class="fas fa-check-circle"></i> Bebida de cortesia</li>
+                            <li><i class="fas fa-check-circle"></i> Wi-Fi Gratuito</li>
+                        </ul>
+                    </div>
+
+                    <div class="professionals-block">
+                        <h3>Profissionais Disponíveis</h3>
+                        <div class="avatars-list">
+                            <div class="avatar-item" title="João">
+                                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Barbeiro João">
+                            </div>
+                            <div class="avatar-item" title="Carlos">
+                                <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Barbeiro Carlos">
+                            </div>
+                            <div class="avatar-item" title="Pedro">
+                                <img src="https://randomuser.me/api/portraits/men/22.jpg" alt="Barbeiro Pedro">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="reviews-block">
+                        <div class="review-header">
+                            <h3>Avaliações Recentes</h3>
+                            <a href="#" class="link-more">Ver tudo</a>
+                        </div>
+                        <div class="review-cards-row">
+                            <div class="review-card">
+                                <div class="review-user">
+                                    <img src="https://randomuser.me/api/portraits/men/11.jpg" alt="User">
+                                    <div>
+                                        <span>Marcos S.</span>
+                                        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                                    </div>
+                                </div>
+                                <p>"Serviço impecável, o ambiente é sensacional."</p>
+                            </div>
+                            <div class="review-card">
+                                <div class="review-user">
+                                    <img src="https://randomuser.me/api/portraits/men/86.jpg" alt="User">
+                                    <div>
+                                        <span>Felipe A.</span>
+                                        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+                                    </div>
+                                </div>
+                                <p>"Melhor corte da região. Recomendo!"</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </section>
+            </div> <section class="related-services">
+                <h2>Você também pode gostar</h2>
+                <div class="grid-related">
+                    <div class="card-mini">
+                        <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1621605815971-fbc98d6d4e85?q=80&w=300');"></div>
+                        <div class="card-info">
+                            <h4>Barba Terapêutica</h4>
+                            <span>R$ 35,00</span>
+                            <button class="btn-outline-sm">Ver</button>
+                        </div>
+                    </div>
+                    <div class="card-mini">
+                        <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1599351431202-1e0f0137899a?q=80&w=300');"></div>
+                        <div class="card-info">
+                            <h4>Acabamento</h4>
+                            <span>R$ 20,00</span>
+                            <button class="btn-outline-sm">Ver</button>
+                        </div>
+                    </div>
+                    <div class="card-mini">
+                        <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1503951914875-452162b0f3f1?q=80&w=300');"></div>
+                        <div class="card-info">
+                            <h4>Combo Completo</h4>
+                            <span>R$ 70,00</span>
+                            <button class="btn-outline-sm">Ver</button>
+                        </div>
+                    </div>
+                    <div class="card-mini">
+                        <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1622286342621-4bd786c2447c?q=80&w=300');"></div>
+                        <div class="card-info">
+                            <h4>Hidratação</h4>
+                            <span>R$ 30,00</span>
+                            <button class="btn-outline-sm">Ver</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <div class="mobile-sticky-cta">
+        <div class="price-info">
+            <span>Total</span>
+            <strong>R$ 45,00</strong>
+        </div>
+        <button class="btn-primary" onclick="startBooking()">Agendar Horário</button>
+    </div>
+
+    <script src="assets/js/detalhe.js"></script>
+</body>
+</html>

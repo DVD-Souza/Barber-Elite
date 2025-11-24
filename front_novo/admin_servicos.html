@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barber Elite Admin | Gerenciamento de Serviços</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    
+    <link rel="stylesheet" href="./assets/css/style_admin_servicos.css">
+</head>
+<body>
+    <div class="admin-layout">
+        <aside class="sidebar">
+            <h2 class="logo">Barber Elite Admin</h2>
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="#"><i class="fas fa-home"></i> Dashboard</a></li>
+                    <li><a href="#"><i class="fas fa-calendar-alt"></i> Reservas</a></li>
+                    <li class="active"><a href="#"><i class="fas fa-scissors"></i> Serviços</a></li>
+                    <li><a href="#"><i class="fas fa-users"></i> Clientes</a></li>
+                    <li><a href="#"><i class="fas fa-cog"></i> Configurações</a></li>
+                </ul>
+            </nav>
+            <div class="user-profile">
+                <div class="avatar" title="Admin"></div>
+                <div class="user-info">
+                    <span class="greeting">Olá, Admin</span>
+                    <a href="#" class="logout-link"><i class="fas fa-sign-out-alt"></i> Sair</a>
+                </div>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="main-header">
+                <h1 class="page-title">Gerenciamento de Serviços</h1>
+                <button class="btn btn-primary" id="new-service-btn">
+                    <i class="fas fa-plus"></i> Novo Serviço
+                </button>
+            </header>
+
+            <section class="service-cards-container">
+                <article class="service-card" data-service-id="1" data-status="active">
+                    <div class="service-header">
+                        <div class="service-image-placeholder">
+                            
+                        </div>
+                        <span class="service-status status-active">Ativo</span>
+                        <input type="checkbox" class="service-select-checkbox" aria-label="Selecionar serviço">
+                    </div>
+                    <h3 class="service-title">Corte Clássico</h3>
+                    <div class="service-details-summary">
+                        <p><i class="fas fa-clock"></i> 45 min</p>
+                        <p><i class="fas fa-dollar-sign"></i> R$ 50,00</p>
+                        <p><i class="fas fa-calendar-check"></i> 124 Reservas</p>
+                    </div>
+                    <div class="service-actions">
+                        <button class="btn btn-secondary edit-btn" title="Editar Serviço"><i class="fas fa-edit"></i> Editar</button>
+                        <button class="btn btn-tertiary duplicate-btn" title="Duplicar Serviço"><i class="fas fa-copy"></i></button>
+                    </div>
+                </article>
+
+                <article class="service-card" data-service-id="2" data-status="inactive">
+                    <div class="service-header">
+                        <div class="service-image-placeholder">
+                            
+
+[Image of Beard Treatment]
+
+                        </div>
+                        <span class="service-status status-inactive">Inativo</span>
+                        <input type="checkbox" class="service-select-checkbox" aria-label="Selecionar serviço">
+                    </div>
+                    <h3 class="service-title">Barba Terapia</h3>
+                    <div class="service-details-summary">
+                        <p><i class="fas fa-clock"></i> 30 min</p>
+                        <p><i class="fas fa-dollar-sign"></i> R$ 40,00</p>
+                        <p><i class="fas fa-calendar-check"></i> 58 Reservas</p>
+                    </div>
+                    <div class="service-actions">
+                        <button class="btn btn-secondary edit-btn" title="Editar Serviço"><i class="fas fa-edit"></i> Editar</button>
+                        <button class="btn btn-tertiary duplicate-btn" title="Duplicar Serviço"><i class="fas fa-copy"></i></button>
+                    </div>
+                </article>
+                
+                <article class="add-service-placeholder">
+                    <i class="fas fa-search"></i>
+                    <p>Pesquise ou <a href="#" id="new-service-link">Crie um Novo Serviço</a></p>
+                </article>
+            </section>
+
+            <hr class="separator">
+
+            <section class="service-form-section" id="service-form-section" aria-labelledby="form-title">
+                <h2 id="form-title">Detalhes do Serviço</h2>
+                <form id="service-details-form" class="service-details-form">
+                    
+                    <div class="form-grid">
+                        <div class="form-col-text">
+                            <label for="service-name" class="form-label">Nome do Serviço *</label>
+                            <input type="text" id="service-name" name="service-name" placeholder="Ex: Corte e Barba Elite" required class="form-input">
+                            
+                            <label for="category" class="form-label">Categoria *</label>
+                            <select id="category" name="category" class="form-select" required>
+                                <option value="" disabled selected>Selecione uma categoria</option>
+                                <option value="corte">Corte</option>
+                                <option value="barba">Barba</option>
+                                <option value="combo">Combo</option>
+                            </select>
+
+                            <label for="service-description" class="form-label">Descrição</label>
+                            <textarea id="service-description" name="service-description" rows="4" placeholder="Detalhes, benefícios, etc." class="form-input"></textarea>
+                            
+                            <div class="input-group-row">
+                                <div>
+                                    <label for="duration" class="form-label">Duração (min) *</label>
+                                    <input type="number" id="duration" name="duration" value="45" min="10" required class="form-input">
+                                </div>
+                                <div>
+                                    <label for="price" class="form-label">Preço (R$) *</label>
+                                    <input type="number" id="price" name="price" value="50.00" step="0.01" required class="form-input">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-col-media">
+                            <label class="form-label">Imagens do Serviço</label>
+                            <div class="main-image-preview" aria-label="Pré-visualização da imagem principal">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                                <span>Clique para Adicionar Imagem</span>
+                            </div>
+                            
+                            <div class="thumbnail-previews">
+                                <div class="thumbnail-item"></div>
+                                <div class="thumbnail-item"></div>
+                                <div class="thumbnail-item"></div>
+                                <div class="thumbnail-item"></div>
+                            </div>
+                            <button type="button" class="btn btn-text-icon"><i class="fas fa-image"></i> Gerenciar Galeria</button>
+
+                            <div class="professionals-select">
+                                <label class="form-label">Profissionais habilitados *</label>
+                                <div class="checkbox-group" role="group" aria-label="Seleção de Profissionais">
+                                    <div class="checkbox-item">
+                                        <input type="checkbox" id="joao-silva" name="professional" value="joao-silva" checked>
+                                        <label for="joao-silva">João Silva</label>
+                                    </div>
+                                    <div class="checkbox-item">
+                                        <input type="checkbox" id="pedro-santos" name="professional" value="pedro-santos" checked>
+                                        <label for="pedro-santos">Pedro Santos</label>
+                                    </div>
+                                    <div class="checkbox-item">
+                                        <input type="checkbox" id="carlos-oliveira" name="professional" value="carlos-oliveira">
+                                        <label for="carlos-oliveira">Carlos Oliveira</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="scheduling-config">
+                        <div class="status-options">
+                            <label class="form-label">Status do Serviço</label>
+                            <div class="radio-group" role="radiogroup">
+                                <input type="radio" id="status-ativo" name="status" value="ativo" checked>
+                                <label for="status-ativo" class="radio-label status-active-label">Ativo</label>
+                                
+                                <input type="radio" id="status-inativo" name="status" value="inativo">
+                                <label for="status-inativo" class="radio-label status-inactive-label">Inativo</label>
+                            </div>
+                        </div>
+
+                        <label for="buffer" class="form-label">Buffer entre Agendamentos (min)</label>
+                        <input type="number" id="buffer" name="buffer" value="10" min="0" class="form-input small-input">
+                        <span class="help-text">Tempo de intervalo necessário para limpeza/preparação.</span>
+                    </div>
+
+                    <div class="advanced-options">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="permit-online" name="option-online" checked>
+                            <label for="permit-online">Permitir agendamento online</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="featured-service" name="option-featured">
+                            <label for="featured-service">Serviço em destaque (Página Inicial)</label>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-tertiary cancel-form-btn"><i class="fas fa-times"></i> Cancelar</button>
+                        <button type="submit" class="btn btn-primary save-form-btn"><i class="fas fa-save"></i> Salvar Serviço</button>
+                    </div>
+
+                </form>
+            </section>
+        </main>
+    </div>
+    <script src="./assets/js/admin_servicos.js"></script>
+</body>
+</html>

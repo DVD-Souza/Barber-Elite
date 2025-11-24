@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reserva - Etapa 2: Data e Horário | Barber Elite</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="assets/css/style_reserva.css">
+</head>
+<body>
+
+    <main class="main-content">
+        <div class="container">
+            
+            <nav aria-label="Etapas de Reserva" class="stepper-nav">
+                <div class="step active done">
+                    <span class="step-circle">1</span>
+                    <span class="step-label">Serviço</span>
+                </div>
+                <div class="step active current">
+                    <span class="step-circle">2</span>
+                    <span class="step-label">Data e Hora</span>
+                </div>
+                <div class="step">
+                    <span class="step-circle">3</span>
+                    <span class="step-label">Confirmação</span>
+                </div>
+            </nav>
+
+            <h1 class="page-title">Escolha Data, Horário e Profissional</h1>
+
+            <section class="selected-service-card card">
+                <div class="service-info-group">
+                    <img src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?q=80&w=150" alt="Corte Clássico" class="service-thumb">
+                    <div class="service-text">
+                        <h2>Corte Clássico Elite</h2>
+                        <p class="service-meta"><i class="far fa-clock"></i> 45 min</p>
+                        <p class="service-meta"><i class="fas fa-tag"></i> R$ 45,00</p>
+                    </div>
+                </div>
+                <button class="btn-outline-sm" onclick="editService()">Alterar</button>
+            </section>
+            
+            <div class="booking-layout">
+                
+                <section class="selection-column">
+                    
+                    <div class="section-block">
+                        <h3 class="section-title">Profissional</h3>
+                        <div class="professional-selection" role="radiogroup" aria-label="Selecione o Profissional">
+                            
+                            <label class="pro-option active" role="radio" aria-checked="true" tabindex="0">
+                                <span class="pro-avatar">
+                                    <i class="fas fa-user-friends"></i>
+                                </span>
+                                <span class="pro-name">Qualquer</span>
+                            </label>
+                            <label class="pro-option" role="radio" aria-checked="false" tabindex="0">
+                                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Profissional João" class="pro-avatar">
+                                <span class="pro-name">João</span>
+                            </label>
+                            <label class="pro-option" role="radio" aria-checked="false" tabindex="0">
+                                <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Profissional Pedro" class="pro-avatar">
+                                <span class="pro-name">Pedro</span>
+                            </label>
+                            <label class="pro-option" role="radio" aria-checked="false" tabindex="0">
+                                <img src="https://randomuser.me/api/portraits/men/22.jpg" alt="Profissional Carlos" class="pro-avatar">
+                                <span class="pro-name">Carlos</span>
+                            </label>
+                            
+                        </div>
+                    </div>
+
+                    <div class="section-block">
+                        <h3 class="section-title">Data e Horário</h3>
+                        <div class="calendar-container">
+                            <div class="calendar-header">
+                                <button class="btn-icon" aria-label="Mês Anterior"><i class="fas fa-chevron-left"></i></button>
+                                <div class="current-month">Novembro 2025</div>
+                                <button class="btn-icon" aria-label="Próximo Mês"><i class="fas fa-chevron-right"></i></button>
+                            </div>
+                            
+                            <div class="calendar-grid">
+                                <span class="day-label">Dom</span>
+                                <span class="day-label">Seg</span>
+                                <span class="day-label">Ter</span>
+                                <span class="day-label">Qua</span>
+                                <span class="day-label">Qui</span>
+                                <span class="day-label">Sex</span>
+                                <span class="day-label">Sáb</span>
+
+                                <button class="day-cell inactive">30</button> 
+                                <button class="day-cell inactive">31</button> 
+
+                                <button class="day-cell active">1</button>
+                                <button class="day-cell active">2</button>
+                                <button class="day-cell active">3</button>
+                                <button class="day-cell active">4</button>
+                                <button class="day-cell active">5</button>
+                                <button class="day-cell active">6</button>
+                                <button class="day-cell active">7</button>
+                                <button class="day-cell active">8</button>
+                                <button class="day-cell active selected" id="selected-day">9</button> <button class="day-cell active">10</button>
+                                <button class="day-cell active">11</button>
+                                <button class="day-cell active">12</button>
+                                <button class="day-cell active unavailable">13</button> <button class="day-cell active today">14</button> <button class="day-cell active">15</button>
+                                </div>
+                            
+                            <div class="legend-row">
+                                <span class="legend-item"><i class="legend-color selected-color"></i> Selecionado</span>
+                                <span class="legend-item"><i class="legend-color unavailable-color"></i> Indisponível</span>
+                                <span class="legend-item"><i class="legend-color today-color"></i> Hoje</span>
+                            </div>
+
+                            <div class="available-times-block">
+                                <div class="times-header">
+                                    <h4>Horários Disponíveis</h4>
+                                    <span class="selected-date-display">14/11/2025 - Hoje</span>
+                                </div>
+                                
+                                <div class="time-slots-container" id="timeSlots">
+                                    <button class="time-slot available selected-slot" onclick="selectTime(this)">09:00</button>
+                                    <button class="time-slot available" onclick="selectTime(this)">09:30</button>
+                                    <button class="time-slot available" onclick="selectTime(this)">10:00</button>
+                                    <button class="time-slot unavailable" disabled>10:30</button>
+                                    <button class="time-slot available" onclick="selectTime(this)">11:00</button>
+                                    <button class="time-slot available" onclick="selectTime(this)">11:30</button>
+                                    <button class="time-slot available" onclick="selectTime(this)">14:00</button>
+                                    <button class="time-slot available" onclick="selectTime(this)">14:30</button>
+                                    <button class="time-slot available" onclick="selectTime(this)">15:00</button>
+                                    <button class="time-slot unavailable" disabled>15:30</button>
+                                    <button class="time-slot available" onclick="selectTime(this)">16:00</button>
+                                    <button class="time-slot available" onclick="selectTime(this)">16:30</button>
+                                    <button class="time-slot available" onclick="selectTime(this)">17:00</button>
+                                    <button class="time-slot available" onclick="selectTime(this)">17:30</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <aside class="summary-column card">
+                    <h3 class="section-title">Resumo da Reserva</h3>
+                    <div class="summary-details">
+                        <div class="detail-row"><span>Serviço</span><strong id="summary-service">Corte Clássico Elite</strong></div>
+                        <div class="detail-row"><span>Profissional</span><strong id="summary-pro">João</strong></div>
+                        <div class="detail-row"><span>Data</span><strong id="summary-date">14/11/2025 (Hoje)</strong></div>
+                        <div class="detail-row"><span>Horário</span><strong id="summary-time">10:00</strong></div>
+                        <div class="detail-row"><span>Duração</span><strong id="summary-duration">45 min</strong></div>
+                    </div>
+                    
+                    <div class="summary-total">
+                        <span>Valor Total</span>
+                        <strong id="summary-price">R$ 45,00</strong>
+                    </div>
+
+                    <div class="cta-actions">
+                        <button class="btn-primary full-width" onclick="continueBooking()">Continuar</button>
+                        <button class="btn-secondary full-width" onclick="goBack()">Voltar</button>
+                    </div>
+
+                    <p class="terms-text"><small>Ao continuar, você concorda com nossos <a href="#">Termos e Condições</a>.</small></p>
+                </aside>
+                
+            </div> </div>
+    </main>
+    
+    <div class="mobile-sticky-cta-footer">
+        <div class="price-info">
+            <span>Total:</span>
+            <strong>R$ 45,00</strong>
+        </div>
+        <button class="btn-primary" onclick="continueBooking()">Continuar</button>
+    </div>
+
+    <script src="assets/js/reserva.js"></script>
+</body>
+</html>

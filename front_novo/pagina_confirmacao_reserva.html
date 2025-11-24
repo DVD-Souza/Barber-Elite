@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmação de Reserva | Barber Elite</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="assets/css/style_confirmacao_reserva.css">
+</head>
+<body>
+
+    <main class="main-content">
+        <div class="container">
+            
+            <nav aria-label="Etapas de Reserva" class="stepper-nav">
+                <div class="step active done">
+                    <span class="step-circle">1</span>
+                    <span class="step-label">Serviço</span>
+                </div>
+                <div class="step active done">
+                    <span class="step-circle">2</span>
+                    <span class="step-label">Data e Hora</span>
+                </div>
+                <div class="step active current">
+                    <span class="step-circle">3</span>
+                    <span class="step-label">Confirmação</span>
+                </div>
+            </nav>
+
+            <h1 class="page-title">Confirme sua Reserva</h1>
+
+            <section class="confirmation-card service-summary card">
+                <h2 class="card-title">Detalhes do Agendamento</h2>
+                
+                <div class="service-details-group">
+                    <div class="service-details-box">
+                        <img id="service-img" src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?q=80&w=150" alt="Corte Clássico" class="service-thumb">
+                        <div class="service-info">
+                            <h3 id="service-name" class="service-title">Corte Clássico Elite</h3>
+                            <p class="service-meta"><i class="far fa-clock"></i> <span id="service-duration">45 min</span></p>
+                            <p class="service-meta"><i class="fas fa-tag"></i> <span id="service-price">R$ 45,00</span></p>
+                        </div>
+                    </div>
+                    
+                    <div class="pro-date-info">
+                        <div class="detail-block">
+                            <p class="detail-label">Profissional</p>
+                            <div class="detail-value pro-detail">
+                                <img id="pro-avatar" src="https://randomuser.me/api/portraits/men/32.jpg" alt="Profissional João" class="pro-avatar">
+                                <span id="pro-name">João</span>
+                            </div>
+                        </div>
+                        <div class="detail-block">
+                            <p class="detail-label">Data e Horário</p>
+                            <div class="detail-value"><i class="far fa-calendar-alt"></i> <span id="res-date">14/11/2025</span></div>
+                            <div class="detail-value"><i class="far fa-clock"></i> <span id="res-time">10:00</span></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="confirmation-card client-info card">
+                <div class="card-header">
+                    <h2 class="card-title">Seus Dados</h2>
+                    <button class="btn-outline-sm" onclick="editClientInfo()">Editar</button>
+                </div>
+                <div class="client-details">
+                    <p id="client-name-display">André Almeida G. Neto</p>
+                    <p id="client-contact-display">andre.neto@email.com | (71) 99999-9999</p>
+                </div>
+            </section>
+
+            <section class="confirmation-card notes-section card">
+                <h2 class="card-title">Notas para o Barbeiro (Opcional)</h2>
+                <textarea id="notes-input" class="form-textarea" rows="3" placeholder="Ex: preferência de estilo, alergias, etc."></textarea>
+            </section>
+
+            <section class="policy-alert">
+                <i class="fas fa-exclamation-circle"></i>
+                <p>Nossas reservas exigem um cancelamento com **no mínimo 2 horas de antecedência** para evitar multa. <a href="#">Ver Termos</a>.</p>
+            </section>
+            
+            <section class="payment-section card">
+                <h2 class="card-title">Pagamento</h2>
+                
+                <div class="price-breakdown">
+                    <div class="breakdown-row"><span>Subtotal</span><span id="subtotal">R$ 45,00</span></div>
+                    <div class="breakdown-row"><span>Taxa de serviço</span><span id="service-fee">R$ 0,00</span></div>
+                    <div class="breakdown-row total-row"><span>Total</span><strong id="total-price">R$ 45,00</strong></div>
+                </div>
+
+                <div class="payment-options" role="radiogroup" aria-label="Métodos de Pagamento">
+                    <label class="payment-option">
+                        <input type="radio" name="payment-method" value="local" checked>
+                        <span class="custom-radio"></span>
+                        <span class="option-label">Pagar no local</span>
+                    </label>
+                    <label class="payment-option">
+                        <input type="radio" name="payment-method" value="credit-card" disabled>
+                        <span class="custom-radio"></span>
+                        <span class="option-label">Cartão de crédito <small>(Em breve)</small></span>
+                    </label>
+                    <label class="payment-option">
+                        <input type="radio" name="payment-method" value="pix" disabled>
+                        <span class="custom-radio"></span>
+                        <span class="option-label">PIX <small>(Em breve)</small></span>
+                    </label>
+                </div>
+            </section>
+
+            <div class="final-actions">
+                <button class="btn-primary full-width" id="confirm-button" onclick="confirmBooking()">
+                    <i class="fas fa-lock"></i> CONFIRMAR RESERVA
+                </button>
+                <button class="btn-secondary full-width" onclick="goBackToTimeSelection()">
+                    Voltar
+                </button>
+                <p class="secure-text"><i class="fas fa-shield-alt"></i> Transação segura</p>
+            </div>
+            
+        </div>
+    </main>
+    
+    <div style="height: 40px;"></div>
+
+    <script src="assets/js/confirmacao_reserva.js"></script>
+</body>
+</html>

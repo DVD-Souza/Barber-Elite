@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barber Elite | Agendamento de Serviços</title>
+    <link rel="stylesheet" href="./assets/css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="container">
+            <div class="logo">
+                <a href="#">
+                    <span class="logo-name">BARBER ELITE</span>
+                </a>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#servicos">Serviços</a></li>
+                    <li><a href="#sobre">Sobre Nós</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                    <li><a href="catalogo.html">Catálogo Completo</a></li>
+                </ul>
+            </nav>
+            <div class="user-actions">
+                <button class="btn btn-secondary">Entrar</button>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">O Melhor Corte. O Melhor Atendimento.</h1>
+                <p class="hero-subtitle">Agende seu horário online de forma rápida e segura e garanta seu lugar com nossos especialistas.</p>
+                <div class="hero-cta">
+                    <button class="btn btn-primary" onclick="location.href='reserva.html'">
+                        AGENDAR AGORA
+                    </button>
+                    <a href="#servicos" class="scroll-link">Ver Nossos Serviços</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                             </div>
+        </div>
+    </section>
+
+    <section id="servicos" class="featured-services-section">
+        <div class="container">
+            <h2 class="section-title">Nossos Serviços em Destaque</h2>
+            <p class="section-subtitle">Conheça nossos serviços mais populares e encontre o corte ideal para você.</p>
+            
+            <div class="service-cards-grid">
+                
+                <div class="service-card">
+                    <div class="service-icon">✂️</div>
+                    <h3 class="service-name">Corte Clássico</h3>
+                    <p class="service-description">O corte tradicional, com atenção aos detalhes e acabamento impecável.</p>
+                    <button class="btn btn-details" onclick="location.href='detalhe-servico.html'">Ver Detalhes</button>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🧔</div>
+                    <h3 class="service-name">Barba Terapêutica</h3>
+                    <p class="service-description">Modelagem com toalha quente e massagem facial para o máximo relaxamento.</p>
+                    <button class="btn btn-details" onclick="location.href='detalhe-servico.html'">Ver Detalhes</button>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">✨</div>
+                    <h3 class="service-name">Combo Elite (Corte + Barba)</h3>
+                    <p class="service-description">O pacote completo de tratamento, combinando corte e barba.</p>
+                    <button class="btn btn-details" onclick="location.href='detalhe-servico.html'">Ver Detalhes</button>
+                </div>
+                
+            </div>
+            
+            <div class="cta-full-services">
+                <button class="btn btn-secondary" onclick="location.href='catalogo.html'">VER TODOS OS SERVIÇOS</button>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="sobre" class="about-location-section">
+        <div class="container">
+            
+            <div class="about-text-col">
+                <h2 class="section-title-small">Nossa História e Missão</h2>
+                <p>
+                    A Barber Elite foi fundada em 2010 com a missão de resgatar o charme das barbearias tradicionais, unindo conforto moderno e técnicas de ponta. Somos mais do que um corte; somos uma experiência.
+                </p>
+                <p class="highlight-text">
+                    Nossos profissionais são certificados e utilizam apenas produtos de alta qualidade para garantir sua satisfação.
+                </p>
+                
+                <div class="opening-hours">
+                    <h3 class="hours-title">Horário de Funcionamento</h3>
+                    <p>Segunda a Sexta: 9:00h - 19:00h</p>
+                    <p>Sábado: 9:00h - 14:00h</p>
+                    <p>Domingo: Fechado</p>
+                </div>
+            </div>
+
+            <div class="location-col">
+                <h2 class="section-title-small">Localização</h2>
+                <div class="map-placeholder">
+                    <p>Mapa Interativo (Google Maps)</p>
+                                     </div>
+                <button class="btn btn-outline">COMO CHEGAR (Ver no Mapa)</button>
+            </div>
+
+        </div>
+    </section>
+    
+    <section class="gallery-section">
+        <div class="container">
+            <h2 class="section-title">Confira Nossa Galeria</h2>
+            <div class="photo-grid">
+                <div class="photo-item">[Foto do Ambiente 1]</div>
+                <div class="photo-item">[Foto do Profissional]</div>
+                <div class="photo-item">[Foto de um Corte de Cabelo]</div>
+                <div class="photo-item">[Foto de Detalhe da Barba]</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials-section">
+        <div class="container">
+            <h2 class="section-title">O que Nossos Clientes Dizem</h2>
+            <div class="testimonial-cards-wrapper">
+                
+                <div class="testimonial-card">
+                    <div class="client-avatar">A.S.</div>
+                    <div class="client-info">
+                        <p class="client-name">André Silva</p>
+                        <p class="testimonial-text">"Sempre fui bem atendido e o corte é o melhor da região. O agendamento online é super prático!"</p>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="client-avatar">J.M.</div>
+                    <div class="client-info">
+                        <p class="client-name">João Marcos</p>
+                        <p class="testimonial-text">"Recomendo a barba com toalha quente. Uma experiência de relaxamento que vale cada centavo."</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    
+    <footer id="contato" class="main-footer">
+        <div class="container">
+            
+            <div class="footer-col contact-info">
+                <h3>Contato Rápido</h3>
+                <p>Telefone: (75) 99999-0000</p>
+                <p>Email: contato@barberelite.com</p>
+                <address>Rua da Barbearia, 123 - Centro, Feira de Santana, BA</address>
+            </div>
+
+            <div class="footer-col quick-links">
+                <h3>Links Úteis</h3>
+                <ul>
+                    <li><a href="login.html">Minha Conta</a></li>
+                    <li><a href="#sobre">Trabalhe Conosco</a></li>
+                    <li><a href="#">Política de Privacidade</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col newsletter">
+                <h3>Fique por Dentro</h3>
+                <p>Assine nossa newsletter para receber promoções exclusivas.</p>
+                <form action="#" class="newsletter-form">
+                    <input type="email" placeholder="Seu melhor e-mail" required>
+                    <button type="submit" class="btn btn-secondary">Assinar</button>
+                </form>
+            </div>
+
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Barber Elite. Todos os direitos reservados. | Desenvolvido por Grupo 4 UNEX.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

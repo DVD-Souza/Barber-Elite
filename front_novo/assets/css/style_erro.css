@@ -1,0 +1,256 @@
+/* Importação da Fonte Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* Variáveis de Design (Paleta Premium) */
+:root {
+    --color-primary-dark: #1a1a2e; /* Navy Dark - Base */
+    --color-secondary-dark: #272740; /* Elementos de fundo */
+    --color-text-dark: #333;
+    --color-text-light: #f0f0f0;
+    --color-accent-success: #00f7a0; /* Electric Lime - Destaque de Ação */
+    --color-background-soft: #f4f4f9; /* Fundo principal */
+    --color-card-background: #ffffff;
+    --color-border-subtle: #d0d0d0;
+
+    --transition-speed: 0.2s;
+    --border-radius: 12px;
+    --shadow-soft: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Reset Básico e Tipografia */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: var(--color-text-dark);
+    background-color: var(--color-background-soft);
+    line-height: 1.6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* --- Layout Principal --- */
+.error-container {
+    background-color: var(--color-card-background);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-soft);
+    padding: 30px 20px;
+    max-width: 90%;
+    width: 600px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+/* --- Header/Logo --- */
+.error-header {
+    margin-bottom: 20px;
+}
+.logo-placeholder {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--color-primary-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+.logo-placeholder i {
+    color: var(--color-accent-success);
+    font-size: 2.2rem;
+}
+
+/* --- Conteúdo do Erro --- */
+.error-content {
+    padding: 20px 0;
+    border-bottom: 1px solid var(--color-border-subtle);
+}
+
+.error-code {
+    font-size: 4rem; /* Mobile */
+    font-weight: 700;
+    color: var(--color-primary-dark);
+    margin-bottom: 5px;
+}
+
+.error-title {
+    font-size: 1.8rem; /* Mobile */
+    font-weight: 600;
+    color: var(--color-accent-success);
+    margin-bottom: 15px;
+}
+
+.error-message {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 30px;
+}
+
+/* --- Botões de Ação --- */
+.error-actions {
+    display: flex;
+    flex-direction: column; /* Mobile: Botões empilhados */
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--transition-speed);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    text-decoration: none;
+    font-size: 1rem;
+    width: 100%; /* Ocupa 100% no mobile */
+    max-width: 300px;
+}
+
+.btn-primary {
+    background-color: var(--color-primary-dark);
+    color: var(--color-text-light);
+}
+
+.btn-primary:hover {
+    background-color: var(--color-secondary-dark);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--color-primary-dark);
+    border: 2px solid var(--color-primary-dark);
+}
+
+.btn-secondary:hover {
+    background-color: var(--color-primary-dark);
+    color: var(--color-text-light);
+}
+
+/* --- Seção de Ajuda (Cards) --- */
+.help-section {
+    text-align: left;
+}
+
+.help-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--color-primary-dark);
+    margin-bottom: 15px;
+    padding-left: 10px;
+    border-left: 4px solid var(--color-accent-success);
+}
+
+.contact-cards {
+    display: flex;
+    flex-direction: column; /* Mobile: Cards empilhados */
+    gap: 15px;
+}
+
+.contact-card {
+    background-color: var(--color-background-soft);
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+}
+
+.contact-card i {
+    font-size: 1.5rem;
+    color: var(--color-accent-success);
+    margin-bottom: 10px;
+}
+
+.contact-card h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--color-primary-dark);
+    margin-bottom: 5px;
+}
+
+.contact-card p {
+    font-size: 0.9rem;
+    color: #777;
+    margin-bottom: 15px;
+}
+
+.contact-link, .contact-link-button {
+    font-size: 0.95rem;
+    color: var(--color-primary-dark);
+    font-weight: 500;
+    text-decoration: none;
+    transition: color var(--transition-speed);
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+}
+.contact-link-button {
+    /* Estiliza o botão para parecer um link */
+    color: var(--color-primary-dark); 
+}
+
+.contact-link:hover, .contact-link-button:hover {
+    color: var(--color-accent-success);
+}
+
+/* --- Footer --- */
+.error-footer {
+    padding-top: 20px;
+    border-top: 1px solid var(--color-border-subtle);
+}
+.error-footer p {
+    font-size: 0.85rem;
+    color: #999;
+}
+
+
+/* --- Media Query: Tablet e Desktop --- */
+@media (min-width: 600px) {
+    .error-container {
+        padding: 50px 40px;
+    }
+    
+    .error-code {
+        font-size: 6rem;
+    }
+    
+    .error-title {
+        font-size: 2.2rem;
+    }
+
+    .error-actions {
+        flex-direction: row; /* Desktop: Botões lado a lado */
+    }
+    
+    .btn {
+        width: auto; /* Retorna a largura para o conteúdo do botão */
+        max-width: none;
+        min-width: 180px; /* Garante que os botões tenham um tamanho mínimo */
+    }
+
+    .contact-cards {
+        flex-direction: row; /* Desktop: Cards lado a lado */
+        justify-content: space-between;
+    }
+    
+    .contact-card {
+        flex: 1; /* Distribui o espaço igualmente */
+    }
+}

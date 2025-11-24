@@ -1,0 +1,521 @@
+/* --- Variáveis de Design --- */
+:root {
+    --primary-bg: #1a1a2e;
+    /* Navy Dark - Background Principal/Sidebar */
+    --accent-color: #e94560;
+    /* Vermelho/Rosa - Ação Principal */
+    --text-main: #333;
+    --text-light: #777;
+    --white: #ffffff;
+    --off-white: #f4f6f8;
+    /* Background do Main Content */
+    --border-color: #e0e0e0;
+    --danger-color: #dc3545;
+    /* Vermelho de Cancelamento/Excluir */
+    --warning-color: #ffc107;
+    /* Amarelo de Alerta/Pendente */
+    --success-color: #28a745;
+    /* Verde de Sucesso/Confirmado */
+    --info-color: #007bff;
+    /* Azul de Informação */
+    --font-main: 'Poppins', sans-serif;
+    --shadow-soft: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-main);
+    background-color: var(--off-white);
+    color: var(--text-main);
+    line-height: 1.6;
+}
+
+/* --- Layout Principal (Grid p/ Desktop) --- */
+.admin-wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+    /* Mobile-First: apenas o main-content */
+    min-height: 100vh;
+}
+
+.main-content {
+    padding: 20px;
+    flex-grow: 1;
+}
+
+/* --- Sidebar (Inicialmente oculto/minimalista no Mobile) --- */
+.sidebar {
+    display: none;
+    /* Oculta no mobile por padrão */
+    background-color: var(--primary-bg);
+    color: var(--white);
+    padding: 20px 0;
+}
+
+.logo-text {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 30px;
+}
+
+.nav-menu ul {
+    list-style: none;
+}
+
+.nav-menu a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 20px;
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    transition: background 0.2s, color 0.2s;
+}
+
+.nav-menu li.active a,
+.nav-menu a:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--white);
+    border-left: 4px solid var(--accent-color);
+}
+
+.user-profile {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.profile-avatar {
+    width: 40px;
+    height: 40px;
+    background: var(--accent-color);
+    border-radius: 50%;
+    margin: 0 auto 5px;
+}
+
+.user-profile p {
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+}
+
+.user-profile a {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-size: 0.8rem;
+}
+
+/* --- Cabeçalho e Ações Principais --- */
+.admin-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.page-title {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--primary-bg);
+}
+
+.header-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+    /* Mobile adjustment */
+}
+
+/* --- Botões Base --- */
+.btn-primary,
+.btn-outline,
+.btn-secondary,
+.btn-danger {
+    padding: 10px 15px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    border: 1px solid transparent;
+}
+
+.btn-primary {
+    background: var(--primary-bg);
+    color: var(--white);
+}
+
+.btn-primary:hover {
+    background: #0f0f18;
+}
+
+.btn-outline {
+    background: var(--white);
+    color: var(--primary-bg);
+    border-color: var(--primary-bg);
+}
+
+.btn-outline:hover {
+    background: var(--primary-bg);
+    color: var(--white);
+}
+
+.btn-secondary {
+    background: var(--off-white);
+    color: var(--text-main);
+    border-color: var(--border-color);
+}
+
+.btn-secondary:hover {
+    background: #e9ecef;
+}
+
+.btn-danger {
+    background: var(--danger-color);
+    color: var(--white);
+}
+
+.btn-danger:hover {
+    background: #c82333;
+}
+
+.btn-secondary:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* --- 1. Cartões KPI (Grid) --- */
+.kpi-summary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.kpi-card {
+    background: var(--white);
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: var(--shadow-soft);
+    border-left: 5px solid;
+}
+
+.kpi-title {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.kpi-value {
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.kpi-trend {
+    font-size: 0.8rem;
+    color: var(--text-light);
+}
+
+.kpi-success {
+    border-left-color: var(--success-color);
+}
+
+.kpi-info {
+    border-left-color: var(--info-color);
+}
+
+.kpi-warning {
+    border-left-color: var(--warning-color);
+}
+
+.kpi-danger {
+    border-left-color: var(--danger-color);
+}
+
+/* --- 2. Toolbar e Filtros --- */
+.reservas-toolbar {
+    background: var(--white);
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: var(--shadow-soft);
+    margin-bottom: 20px;
+}
+
+.search-and-tabs {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.search-box {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.search-box i {
+    position: absolute;
+    left: 10px;
+    color: var(--text-light);
+}
+
+#search-reservas {
+    width: 100%;
+    padding: 10px 10px 10px 35px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    font-size: 1rem;
+}
+
+.status-tabs {
+    display: flex;
+    gap: 5px;
+    overflow-x: auto;
+    padding-bottom: 5px;
+}
+
+.tab-btn {
+    padding: 8px 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    background: var(--off-white);
+    color: var(--text-light);
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    flex-shrink: 0;
+}
+
+.tab-btn.active {
+    background: var(--primary-bg);
+    color: var(--white);
+    border-color: var(--primary-bg);
+}
+
+.filters-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.filter-select,
+.filter-date {
+    flex-grow: 1;
+    padding: 8px 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    font-family: var(--font-main);
+    font-size: 0.9rem;
+    min-width: 120px;
+}
+
+/* --- 3. Tabela de Reservas --- */
+.reservas-list {
+    padding: 0;
+}
+
+.table-responsive {
+    overflow-x: auto;
+}
+
+.reservas-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 700px;
+    /* Garante que a tabela não fique espremida no mobile */
+}
+
+.reservas-table thead th {
+    background-color: #e9e9f1;
+    /* Cinza suave do admin */
+    color: var(--primary-bg);
+    padding: 12px 10px;
+    text-align: left;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.reservas-table tbody tr {
+    border-bottom: 1px solid var(--border-color);
+    transition: background-color 0.2s;
+}
+
+.reservas-table tbody tr:hover {
+    background-color: var(--off-white);
+}
+
+.reservas-table td {
+    padding: 10px;
+    font-size: 0.95rem;
+    vertical-align: middle;
+}
+
+/* Esconder cabeçalho no mobile e usar 'data-label' */
+.reservas-table tbody td:before {
+    /* Mobile-First: Visível apenas no Mobile/Tablets pequenos */
+    content: attr(data-label);
+    font-weight: 600;
+    margin-right: 10px;
+    display: none;
+    color: var(--primary-bg);
+}
+
+/* No mobile, exibir as células como blocos (opcional para UX, foca-se no scroll horizontal) */
+
+
+.status-badge {
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    display: inline-block;
+}
+
+.status-confirmed {
+    background: var(--success-color);
+    color: var(--white);
+}
+
+.status-pending {
+    background: var(--warning-color);
+    color: var(--text-main);
+}
+
+.status-canceled {
+    background: var(--danger-color);
+    color: var(--white);
+}
+
+.action-icon-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    color: var(--text-light);
+    margin-right: 5px;
+    transition: color 0.2s;
+}
+
+.action-icon-btn:hover {
+    color: var(--primary-bg);
+}
+
+.action-cancel:hover {
+    color: var(--danger-color);
+}
+
+.action-confirm:hover {
+    color: var(--success-color);
+}
+
+/* --- Rodapé da Tabela (Ações em Massa e Paginação) --- */
+.table-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    border-top: 1px solid var(--border-color);
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.bulk-actions button {
+    margin-right: 5px;
+}
+
+.pagination {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.page-btn {
+    padding: 5px 10px;
+    border: 1px solid var(--border-color);
+    background: var(--white);
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.page-btn.active,
+.page-btn:hover {
+    background: var(--primary-bg);
+    color: var(--white);
+    border-color: var(--primary-bg);
+}
+
+
+/* --- Media Query para Desktop/Tablet (Layout Grid) --- */
+@media (min-width: 992px) {
+
+    /* Desliga o Grid no wrapper para usar a compensação de margem com sidebar fixa */
+    .admin-wrapper {
+        display: block;
+    }
+
+    .sidebar {
+        display: block;
+        position: fixed;
+        width: 250px;
+        /* CORRIGIDO: Deve usar 100vh para ocupar toda a altura da viewport */
+        height: 100vh;
+        /* CORRIGIDO: Necessário para que position: fixed funcione corretamente */
+        top: 0;
+        left: 0;
+        padding: 20px 0;
+    }
+
+    .main-content {
+        /* CORRIGIDO: Compensação da barra lateral fixa */
+        margin-left: 250px;
+        padding: 30px;
+    }
+
+    .admin-header {
+        margin-bottom: 30px;
+        flex-wrap: nowrap;
+    }
+
+    .header-actions {
+        margin-top: 0;
+    }
+
+    .search-and-tabs {
+        flex-direction: row;
+        gap: 20px;
+    }
+
+    .search-box {
+        flex-basis: 60%;
+        max-width: 400px;
+    }
+
+    .status-tabs {
+        flex-grow: 1;
+    }
+
+    .filters-group {
+        gap: 15px;
+    }
+
+    /* Voltar a visualização de tabela tradicional em desktop */
+    .reservas-table tbody td:before {
+        display: none;
+    }
+
+    .table-footer {
+        flex-wrap: nowrap;
+    }
+}

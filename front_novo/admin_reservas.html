@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin: Gerenciamento de Reservas | Barber Elite</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="assets/css/style_admin.css">
+</head>
+<body>
+
+    <div class="admin-wrapper">
+        <aside class="sidebar">
+            <h2 class="logo-text">Barber Elite Admin</h2>
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="#"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                    <li class="active"><a href="#"><i class="fas fa-calendar-check"></i> Reservas</a></li>
+                    <li><a href="#"><i class="fas fa-cut"></i> Serviços</a></li>
+                    <li><a href="#"><i class="fas fa-users"></i> Clientes</a></li>
+                    <li><a href="#"><i class="fas fa-cog"></i> Configurações</a></li>
+                </ul>
+            </nav>
+            <div class="user-profile">
+                <div class="profile-avatar"></div>
+                <p>Olá, Admin</p>
+                <a href="#"><i class="fas fa-sign-out-alt"></i> Sair</a>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="admin-header">
+                <h1 class="page-title">Gerenciamento de Reservas</h1>
+                <div class="header-actions">
+                    <button class="btn-outline"><i class="fas fa-file-export"></i> Exportar</button>
+                    <button class="btn-primary"><i class="fas fa-plus"></i> Nova Reserva</button>
+                </div>
+            </header>
+
+            <section class="kpi-summary-grid">
+                <div class="kpi-card kpi-success">
+                    <h3 class="kpi-title"><i class="fas fa-sun"></i> Hoje</h3>
+                    <p class="kpi-value" id="kpi-hoje">03</p>
+                    <span class="kpi-trend">+1 Confirmada</span>
+                </div>
+                <div class="kpi-card kpi-info">
+                    <h3 class="kpi-title"><i class="fas fa-calendar-week"></i> Semana</h3>
+                    <p class="kpi-value" id="kpi-semana">18</p>
+                    <span class="kpi-trend">90% Confirmação</span>
+                </div>
+                <div class="kpi-card kpi-warning">
+                    <h3 class="kpi-title"><i class="fas fa-hourglass-half"></i> Pendentes</h3>
+                    <p class="kpi-value" id="kpi-pendentes">05</p>
+                    <span class="kpi-trend">Exigem Ação</span>
+                </div>
+                <div class="kpi-card kpi-danger">
+                    <h3 class="kpi-title"><i class="fas fa-times-circle"></i> Canceladas</h3>
+                    <p class="kpi-value" id="kpi-canceladas">02</p>
+                    <span class="kpi-trend">Últimos 7 dias</span>
+                </div>
+            </section>
+
+            <section class="reservas-toolbar card">
+                <div class="search-and-tabs">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="search-reservas" placeholder="Buscar por cliente, ID ou serviço...">
+                    </div>
+                    <div class="status-tabs">
+                        <button class="tab-btn active" data-status="all">Todas</button>
+                        <button class="tab-btn" data-status="confirmed">Confirmadas</button>
+                        <button class="tab-btn" data-status="pending">Pendentes</button>
+                        <button class="tab-btn" data-status="today">Hoje</button>
+                    </div>
+                </div>
+
+                <div class="filters-group">
+                    <select class="filter-select">
+                        <option value="">Filtrar por status</option>
+                        <option value="confirmed">Confirmado</option>
+                        <option value="pending">Pendente</option>
+                        <option value="canceled">Cancelado</option>
+                    </select>
+                    <input type="date" class="filter-date">
+                    <select class="filter-select">
+                        <option value="">Profissional</option>
+                        <option value="joao">João</option>
+                        <option value="pedro">Pedro</option>
+                    </select>
+                </div>
+            </section>
+
+            <section class="reservas-list card">
+                
+                <div class="table-responsive">
+                    <table class="reservas-table">
+                        <thead>
+                            <tr>
+                                <th><input type="checkbox" id="select-all"> ID</th>
+                                <th>Cliente</th>
+                                <th>Serviço</th>
+                                <th>Data/Hora</th>
+                                <th>Profissional</th>
+                                <th>Status</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody id="reservas-body">
+                            <tr data-id="101" data-status="confirmed">
+                                <td><input type="checkbox" name="reserva-select" value="101"> #BR2024-0101</td>
+                                <td data-label="Cliente">Carlos Souza</td>
+                                <td data-label="Serviço">Corte + Barba Elite</td>
+                                <td data-label="Data/Hora">25/Nov, 10:00</td>
+                                <td data-label="Profissional">João</td>
+                                <td><span class="status-badge status-confirmed">Confirmado</span></td>
+                                <td>
+                                    <button class="action-icon-btn view-details" title="Ver Detalhes"><i class="fas fa-eye"></i></button>
+                                    <button class="action-icon-btn action-cancel" title="Cancelar"><i class="fas fa-times"></i></button>
+                                </td>
+                            </tr>
+                            <tr data-id="102" data-status="pending">
+                                <td><input type="checkbox" name="reserva-select" value="102"> #BR2024-0102</td>
+                                <td data-label="Cliente">Maria Silva</td>
+                                <td data-label="Serviço">Pintura Capilar</td>
+                                <td data-label="Data/Hora">25/Nov, 14:30</td>
+                                <td data-label="Profissional">Pedro</td>
+                                <td><span class="status-badge status-pending">Pendente</span></td>
+                                <td>
+                                    <button class="action-icon-btn view-details" title="Ver Detalhes"><i class="fas fa-eye"></i></button>
+                                    <button class="action-icon-btn action-confirm" title="Confirmar"><i class="fas fa-check"></i></button>
+                                </td>
+                            </tr>
+                            </tbody>
+                    </table>
+                </div>
+
+                <div class="table-footer">
+                    <div class="bulk-actions">
+                        <button class="btn-secondary" id="confirm-selected" disabled>Confirmar Selecionados</button>
+                        <button class="btn-secondary" id="cancel-selected" disabled>Cancelar Selecionados</button>
+                        <button class="btn-danger" id="delete-selected" disabled><i class="fas fa-trash-alt"></i> Excluir</button>
+                    </div>
+                    <div class="pagination">
+                        <span>Página:</span>
+                        <button class="page-btn active">1</button>
+                        <button class="page-btn">2</button>
+                        <button class="page-btn">3</button>
+                        <button class="page-btn"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="assets/js/admin_reservas.js"></script>
+</body>
+</html>
