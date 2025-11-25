@@ -6,6 +6,7 @@
     <title>Barber Elite | Agendamento de Serviços</title>
     <link rel="stylesheet" href="./assets/css/styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="./assets/js/index.js" defer></script>
 </head>
 <body>
 
@@ -25,7 +26,7 @@
                 </ul>
             </nav>
             <div class="user-actions">
-                <button class="btn btn-secondary">Entrar</button>
+                <button class="btn btn-secondary" onclick="telaLogin()">Entrar</button>
             </div>
         </div>
     </header>
@@ -36,7 +37,7 @@
                 <h1 class="hero-title">O Melhor Corte. O Melhor Atendimento.</h1>
                 <p class="hero-subtitle">Agende seu horário online de forma rápida e segura e garanta seu lugar com nossos especialistas.</p>
                 <div class="hero-cta">
-                    <button class="btn btn-primary" onclick="location.href='reserva.html'">
+                    <button class="btn btn-primary" onclick="telaServicos()">
                         AGENDAR AGORA
                     </button>
                     <a href="#servicos" class="scroll-link">Ver Nossos Serviços</a>
@@ -78,7 +79,7 @@
             </div>
             
             <div class="cta-full-services">
-                <button class="btn btn-secondary" onclick="location.href='catalogo.html'">VER TODOS OS SERVIÇOS</button>
+                <button class="btn btn-secondary" onclick="telaServicos()">VER TODOS OS SERVIÇOS</button>
             </div>
 
         </div>
@@ -108,7 +109,7 @@
                 <h2 class="section-title-small">Localização</h2>
                 <div class="map-placeholder">
                     <p>Mapa Interativo (Google Maps)</p>
-                                     </div>
+                </div>
                 <button class="btn btn-outline">COMO CHEGAR (Ver no Mapa)</button>
             </div>
 

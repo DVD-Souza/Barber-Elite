@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
             category: "barba",
             duration: "30 min",
             price: 35.00,
-            image: "https://images.unsplash.com/photo-1621605815971-fbc98d6d4e85?auto=format&fit=crop&q=80&w=400",
+            image: "../../backend/public/assets/img/barboterapia.png",
             description: "Modelagem de barba com toalha quente, esfoliação e hidratação com óleos essenciais.",
             popular: true
         },
@@ -64,6 +64,10 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     ];
 
+    function telaReserva() {
+    window.location.href = "pagina_reserva.html";
+    }
+
     const servicesGrid = document.getElementById('servicesGrid');
     const searchInput = document.getElementById('searchInput');
     const categoryFilter = document.getElementById('categoryFilter');
@@ -104,7 +108,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         <div class="price">R$ ${service.price.toFixed(2)}</div>
                         <div class="actions">
                             <button class="btn btn-outline" onclick="alert('Detalhes de: ${service.title}')">Detalhes</button>
-                            <button class="btn btn-primary" onclick="window.location.href='reserva.html?id=${service.id}'">Agendar</button>
+                            <button class="btn btn-primary" onclick="window.location.href='pagina_reserva.html?id=${service.id}'">Agendar</button>
                         </div>
                     </div>
                 </div>

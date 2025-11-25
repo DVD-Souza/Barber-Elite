@@ -1,3 +1,23 @@
+// assets/js/reserva.js
+
+function collectBookingData() {
+    const selectedPro = document.querySelector('.pro-option.active');
+    const selectedTime = document.querySelector('.time-slot.selected-slot');
+    const selectedDayCell = document.querySelector('.day-cell.selected'); // Célula do dia (HTML)
+    
+    // Nota: Em um projeto real, você usaria 'data-id' para pegar os IDs do BD.
+    // Usaremos o texto do resumo por enquanto, baseado no seu código anterior.
+    
+    return {
+        service: document.getElementById('summary-service').textContent,
+        professional: document.getElementById('summary-pro').textContent,
+        date: document.getElementById('summary-date').textContent,
+        time: selectedTime ? selectedTime.textContent : null,
+        // Adicionando um ID simulado do Profissional para o próximo passo
+        professionalId: selectedPro ? selectedPro.dataset.id || 'MOCK_PRO_ID' : null
+    };
+}
+
 // --- MOCK DATA para o Resumo ---
 const MOCK_DATA = {
     service: { name: 'Corte Clássico Elite', duration: '45 min', price: 'R$ 45,00' },
@@ -49,8 +69,10 @@ function editService() {
 }
 
 // 4. Lógica de Continuação
+// assets/js/reserva.js
+
 function continueBooking() {
-    // Validações básicas antes de prosseguir
+    // 1. Validações básicas antes de prosseguir
     const selectedPro = document.querySelector('.pro-option.active');
     const selectedTime = document.querySelector('.time-slot.selected-slot');
     const selectedDay = document.querySelector('.day-cell.selected');
@@ -60,29 +82,20 @@ function continueBooking() {
         return;
     }
 
-    // Simulação de navegação (prossegue para Etapa 3: Confirmação)
-    const btnText = document.querySelector('.mobile-sticky-cta-footer .btn-primary').textContent;
-    const allBtns = document.querySelectorAll('.btn-primary');
+    // 2. Coletar os dados para passar para a próxima página
+    const bookingData = collectBookingData();
 
-    allBtns.forEach(btn => {
-        btn.textContent = 'Aguarde...';
-        btn.disabled = true;
-    });
+    // 3. Salvar os dados no Session Storage
+    // Isso é crucial para que a próxima página (Confirmação) possa carregá-los.
+    sessionStorage.setItem('currentBooking', JSON.stringify(bookingData));
 
-    setTimeout(() => {
-        // Neste ponto, os dados seriam salvos na sessão ou no estado da aplicação.
-        alert('Reserva simulada com sucesso! Prosseguindo para a Confirmação.');
-        
-        // Implementação real: window.location.href = 'pagina-confirmacao-reserva.html';
-        
-        allBtns.forEach(btn => {
-            btn.textContent = btnText;
-            btn.disabled = false;
-        });
-        
-        // Simular o reset para permitir novo clique no exemplo
-        // Neste ambiente, apenas alertamos para evitar redirecionamento real.
-    }, 1000);
+
+    // 4. Redirecionamento Imediato (Sem setTimeout)
+    window.location.href = 'minhas_reservas.html';
+    // Certifique-se de que o nome do arquivo aqui está correto (com underscore ou hifen)
+    
+    // OBS: O código para restaurar botões e o alert foi removido, 
+    // pois o redirecionamento é instantâneo.
 }
 
 // 5. Lógica de Voltar
